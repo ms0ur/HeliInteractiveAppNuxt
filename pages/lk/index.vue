@@ -7,8 +7,13 @@ import Cookies from 'js-cookie'
 
 
 const nickname = Cookies.get("nickname")
+const currtime = ref("0")
 
-const time = ref('14:39')
+setInterval(() => {
+  let d = new Date()
+  currtime.value = d.toLocaleTimeString('it-IT')
+}, 1000)
+
 const weather = ref('В питере пасмурно')
 const players = ref(0)
 
@@ -26,9 +31,9 @@ const bank2 = ref(0)
     <div class="card py-5 px-6 flex flex-col gap-10 lg:py-10 lg:px-8">
       <FirstTileComponent 
         :nickname="nickname" 
-        :time="time" 
+        :time="currtime" 
         :weather="weather" 
-        :players="players" />
+        :players="players"/>
     </div>
     <div class="card py-5 px-6 flex flex-col gap-10 lg:py-10 lg:px-8">
       <SecondTileComponent 
