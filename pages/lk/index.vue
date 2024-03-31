@@ -48,7 +48,11 @@ const bank2 = ref(0)
     </div>
     <div class="card py-5 px-6 flex flex-col gap-10 lg:py-10 lg:px-8"></div>
     <div class="card py-5 px-6 flex flex-col gap-10 lg:py-10 lg:px-8"></div>
-    <div class="card py-5 px-6 flex flex-col gap-10 lg:py-10 lg:px-8"></div>
+    <div class="card py-5 px-6 flex flex-col gap-10 lg:py-10 lg:px-8">
+      <SixthTileComponent 
+      
+      />
+    </div>
   </div>
 </template>
 
