@@ -8,14 +8,17 @@ import Cookies from 'js-cookie'
 
 const nickname = Cookies.get("nickname")
 
-const time = ref('00:00')
-const weather = ref('Солнечно')
+const time = ref('14:39')
+const weather = ref('В питере пасмурно')
 const players = ref(0)
 
 const health = ref('100%')
 const location = ref('X: 0, Y: 0')
 const diam = ref(0)
 const isOnline = ref(true)
+
+const bank1 = ref(0)
+const bank2 = ref(0)
 </script>
 
 <template>
@@ -35,7 +38,14 @@ const isOnline = ref(true)
         :diam="diam"
         :is-online="isOnline" />
     </div>
-    <div class="card py-5 px-6 flex flex-col gap-10 lg:py-10 lg:px-8"></div>
+    <div class="card py-5 px-6 flex flex-col gap-10 lg:py-10 lg:px-8">
+      <ThirdTileComponent 
+      :bank1 = "bank1"
+      :bank2 = "bank2"
+      />
+         
+        
+    </div>
     <div class="card py-5 px-6 flex flex-col gap-10 lg:py-10 lg:px-8"></div>
     <div class="card py-5 px-6 flex flex-col gap-10 lg:py-10 lg:px-8"></div>
     <div class="card py-5 px-6 flex flex-col gap-10 lg:py-10 lg:px-8"></div>
