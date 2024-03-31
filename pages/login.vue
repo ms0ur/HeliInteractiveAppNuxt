@@ -27,7 +27,8 @@ const isAuth = async () => {
     if (Cookies.get('token') !== undefined && Cookies.get('token') !== null && Cookies.get('token') !== "") {
       await axios.post('https://api.helicraft.ru/auth', {
         request: "validate",
-        token: Cookies.get('token')
+        token: Cookies.get('token'),
+        username: Cookies.get('nickname')
       }).then(function (response) {
         console.log(response.status)
         if(response.status == 200){
@@ -98,7 +99,7 @@ const isAuth = async () => {
             <input type="password" v-model="password" class="block w-full bg-gray-800 rounded-md py-2 px-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-0066ff mt-4" placeholder="Пароль с сервера">
             <div v-if="warn" class="bg-red-500 mt-3 text-white px-4 py-2 rounded-md">Не все поля заполнены</div>
             <div v-if="pwarnB" class="bg-red-500 mt-3 text-white px-4 py-2 rounded-md">{{ pwarn }}</div>
-            <button type="submit" class="mt-3"><NextButtonComponent /></button>
+            <button type="submit" class="mt-3"><NextButtonComponent :text="'Войти'" /></button>
           </form>
         </div>
       </div>

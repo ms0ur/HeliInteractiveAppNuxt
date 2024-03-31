@@ -7,7 +7,8 @@ export default defineNuxtRouteMiddleware((to, from) => {
         if (Cookies.get('token') != undefined || null || "") {
           await axios.post('https://api.helicraft.ru/auth', {
             request: "validate",
-            token: Cookies.get('token')
+            token: Cookies.get('token'),
+            nickname: Cookies.get('nickname')
           }).then(function (response) {
             console.log(response.status)
             if(response.status == 200){

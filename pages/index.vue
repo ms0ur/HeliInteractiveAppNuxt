@@ -10,7 +10,7 @@
     <div class="flex items-center justify-center" style="height: 100%">
       <div class="">
         <div class="">
-          <a class="p-0" href="/login"><NextButtonComponent class=" scale-150"/></a>
+          <a class="p-0" href="/login"><NextButtonComponent class=" scale-150" :text="'Войти'"/></a>
         </div>
       </div>
     </div>

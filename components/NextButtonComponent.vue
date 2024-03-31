@@ -1,3 +1,9 @@
+<script setup lang="ts">
+defineProps({
+  text: String
+})
+</script>
+
 <template>
     <div class="w-full h-fit flex items-center justify-center cursor-pointer">
   <div
@@ -44,7 +50,7 @@
     </span>
     <span
       class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white dark:group-hover:text-gray-200"
-      >Войти</span
+      >{{ text }}</span
     >
   </div>
 </div>
