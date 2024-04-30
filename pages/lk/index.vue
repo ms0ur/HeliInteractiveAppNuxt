@@ -9,10 +9,12 @@ import Cookies from 'js-cookie'
 const nickname = Cookies.get("nickname")
 const currtime = ref("0")
 
-setInterval(() => {
-  let d = new Date()
-  currtime.value = d.toLocaleTimeString('ru-RU')
-}, 1000)
+onMounted(() => {
+  setInterval(() => {
+    let d = new Date()
+    currtime.value = d.toLocaleTimeString('ru-RU')
+  }, 1000)
+})
 
 const weather = ref('На сервере солнечно')
 const players = ref(0)
