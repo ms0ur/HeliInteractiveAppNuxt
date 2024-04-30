@@ -4,8 +4,6 @@ definePageMeta({
 })
 import Cookies from 'js-cookie'
 
-
-
 const nickname = Cookies.get("nickname")
 const currtime = ref("0")
 

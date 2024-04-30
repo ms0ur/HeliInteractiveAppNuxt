@@ -19,5 +19,11 @@ export default defineNuxtConfig({
   ],
   colorMode: {
     classSuffix: ''
-  }
+  },
+  mongoose: {
+    uri: process.env.MONGODB_URI,
+    options: {},
+    modelsDir: 'models',
+    devtools: true,
+  },
 })
