@@ -11,10 +11,10 @@ const currtime = ref("0")
 
 setInterval(() => {
   let d = new Date()
-  currtime.value = d.toLocaleTimeString('it-IT')
+  currtime.value = d.toLocaleTimeString('ru-RU')
 }, 1000)
 
-const weather = ref('В питере пасмурно')
+const weather = ref('На сервере солнечно')
 const players = ref(0)
 
 const health = ref('100%')
@@ -48,12 +48,13 @@ const bank2 = ref(0)
       :bank1 = "bank1"
       :bank2 = "bank2"
       />
-         
-        
+    </div>
+    <div class="card py-5 px-6 flex flex-col gap-10 lg:py-10 lg:px-8">
+      
     </div>
     <div class="card py-5 px-6 flex flex-col gap-10 lg:py-10 lg:px-8"></div>
-    <div class="card py-5 px-6 flex flex-col gap-10 lg:py-10 lg:px-8"></div>
     <div class="card py-5 px-6 flex flex-col gap-10 lg:py-10 lg:px-8">
+
       <SixthTileComponent 
       
       />

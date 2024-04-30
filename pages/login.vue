@@ -9,6 +9,36 @@ const warn = ref(false)
 const pwarnB = ref(false)
 const pwarn = ref('')
 
+const formSubmit = async () =>{
+    warn.value = false
+    pwarnB.value = false
+    pwarn.value = ''
+    if (nickname.value == '' || password.value == '') {
+      warn.value = true
+    } else {
+
+      await axios.post('https://api.helicraft.ru/auth', {
+        request: "login",
+        nickname: nickname.value,
+        password: password.value
+      }).then(function (response) {
+        if(response.status == 200){
+          console.log(response.data.nickname)
+          Cookies.set('token', response.data.token, { expires: 7, secure: true, sameSite: 'strict' })
+          Cookies.set('nickname', response.data.username, { expires: 7, secure: true, sameSite: 'strict' })
+          navigateTo('/lk')
+        } else if(response.status == 401){
+          pwarn.value = "Неверный логин или пароль"
+          pwarnB.value = true
+          
+        }
+      }).catch(function (error) {
+        pwarnB.value = true
+        pwarn.value = error.response.data.message
+      })
+    }
+  }
+
 const isAuth = async () => {
   if(await isAuthValid()){
     console.log('auth valid')
@@ -51,35 +81,6 @@ const isAuth = async () => {
   isAuth()
 })
 
-  const formSubmit = async () =>{
-    warn.value = false
-    pwarnB.value = false
-    pwarn.value = ''
-    if (nickname.value == '' || password.value == '') {
-      warn.value = true
-    } else {
-
-      await axios.post('https://api.helicraft.ru/auth', {
-        request: "login",
-        nickname: nickname.value,
-        password: password.value
-      }).then(function (response) {
-        if(response.status == 200){
-          console.log(response.data.nickname)
-          Cookies.set('token', response.data.token, { expires: 7, secure: true, sameSite: 'strict' })
-          Cookies.set('nickname', response.data.username, { expires: 7, secure: true, sameSite: 'strict' })
-          navigateTo('/lk')
-        } else if(response.status == 401){
-          pwarn.value = "Неверный логин или пароль"
-          pwarnB.value = true
-          
-        }
-      }).catch(function (error) {
-        pwarnB.value = true
-        pwarn.value = error.response.data.message
-      })
-    }
-  }
 
 </script>
 
@@ -93,7 +94,7 @@ const isAuth = async () => {
       
       <div class="">
         <div class="flex items-center flex-col justify-center">
-          <form class="card px-8 py-8 rounded-lg shadow-lg" @submit.prevent="formSubmit">
+          <form class="card px-8 py-8 rounded-lg shadow-lg" @submit.prevent="formSubmit()">
             <h2 class="text-2xl monserrat text-gray-100 pb-5">Вход</h2>
             <input type="text" v-model="nickname" class="block w-full bg-gray-800 rounded-md py-2 px-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-0066ff" placeholder="Никнейм">
             <input type="password" v-model="password" class="block w-full bg-gray-800 rounded-md py-2 px-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-0066ff mt-4" placeholder="Пароль с сервера">

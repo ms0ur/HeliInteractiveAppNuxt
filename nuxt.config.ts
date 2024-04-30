@@ -14,7 +14,8 @@ export default defineNuxtConfig({
     "radix-vue",
     "@vite-pwa/nuxt",
     "nuxt-auth-utils",
-    "@nuxtjs/color-mode"
+    "@nuxtjs/color-mode",
+    "nuxt-mongoose"
   ],
   colorMode: {
     classSuffix: ''
