@@ -15,15 +15,9 @@ export default defineNuxtConfig({
     "@vite-pwa/nuxt",
     "nuxt-auth-utils",
     "@nuxtjs/color-mode",
-    "nuxt-mongoose"
+    "nuxt-bootstrap-icons"
   ],
   colorMode: {
     classSuffix: ''
-  },
-  mongoose: {
-    uri: process.env.MONGODB_URI,
-    options: {},
-    modelsDir: 'models',
-    devtools: true,
-  },
+  }
 })

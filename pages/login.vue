@@ -24,8 +24,8 @@ const formSubmit = async () =>{
       }).then(function (response) {
         if(response.status == 200){
           console.log(response.data.nickname)
-          Cookies.set('token', response.data.token, { expires: 7, secure: true, sameSite: 'strict' })
-          Cookies.set('nickname', response.data.username, { expires: 7, secure: true, sameSite: 'strict' })
+          Cookies.set('token', response.data.token, { expires: 14, secure: true, sameSite: 'strict' })
+          Cookies.set('nickname', response.data.username, { expires: 14, secure: true, sameSite: 'strict' })
           navigateTo('/lk')
         } else if(response.status == 401){
           pwarn.value = "Неверный логин или пароль"

@@ -10,7 +10,7 @@ defineProps({
       <div class="text-white text-2xl flex flex-col gap-2">
         <h5>Счет 1: {{ bank1 }}</h5>
         <h5>Счет 2: {{ bank2 }}</h5>
-        <NextButtonComponent :text="'Оплатить услугу'" />
-        <NextButtonComponent :text="'Перевести'" />
+        <NuxtLink to="/bank/payment/pay"><NextButtonComponent :text="'Оплатить услугу'" /></NuxtLink>
+        <NuxtLink to="/bank/transfer"><NextButtonComponent :text="'Перевести'" /> </NuxtLink>
       </div>
 </template>
